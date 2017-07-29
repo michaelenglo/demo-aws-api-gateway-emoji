@@ -18,7 +18,57 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+    	score = float(self.request.get('score'))
+
+    	self.response.headers['Content-Type'] = 'image/gif'
+    	self.response.headers['Access-Control-Allow-Origin'] = '*'
+
+        if score < 0.21:
+            with open("gif/angry1.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.25:
+            with open("gif/angry2.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.3:
+            with open("gif/angry3.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.35:
+            with open("gif/angry4.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.4:
+            with open("gif/angry5.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.45:
+            with open("gif/neutral1.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.5:
+            with open("gif/neutral2.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.55:
+            with open("gif/neutral3.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.6:
+            with open("gif/neutral4.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.65:
+            with open("gif/neutral5.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.7:
+            with open("gif/happy1.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.75:
+            with open("gif/happy2.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.8:
+            with open("gif/happy3.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        elif score < 0.85:
+            with open("gif/happy4.gif", 'rb') as fp:
+              self.response.write(fp.read())
+        else:
+            with open("gif/happy5.gif", 'rb') as fp:
+              self.response.write(fp.read())
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
